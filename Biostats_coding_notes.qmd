@@ -1,0 +1,81 @@
+---
+title: "Integrated R and Formulas with Stats Content"
+format: html
+editor: visual
+---
+
+# GitHub
+
+A version control system which allows one to keep track of your code history/changes you’ve made to files. This means you’re also able to access previous versions when necessary
+
+-   Help groups of developers work collaboratively on big software projects.
+
+-   Once files are downloaded (pull), changes are made in local repository
+
+-   After coding, one has to push commits to Github
+
+## Creating a Repository
+
+1.  If you have never created a repository, you will see a green “Create Repository” button on the upper left side. If you have created a repository before, you will see a green “New” button on the upper left side next to the text that says “Repository”. Click this green button.
+2.  Give your repository a name.
+3.  Select if you want the repository to be public or private.
+4.  Check the box to “add a README file”. This is a file where you can document things like the names of your group members.
+5.  Under the add .gitignore heading, click the down arrow and select “R”. This will add a file that tells git to ignore common file types in R that people usually want to ignore (such as temporary files).
+6.  Click the green “Create Repository” button at the bottom.
+
+## Cloning a Remote Repository
+
+Cloning a remote repository allows you to work on files locally in your RStudio or on Datahub.
+
+1.  In R Studio, click the down arrow by the listed project, then click “New Project”
+2.  Select “Version Control” and then “Git”.
+3.  Go to the page for your repository on GitHub, then click the green “Code” button, and copy the HTTPS link.
+4.  Paste the HTTPS link in the “Repository URL” field in R Studio, and choose a project directory name and location.
+5.  Click “Create Project”.
+6.  Enter your GitHub username when prompted. Note: some browsers may try to autofill incorrect information here. Please type in your github username (not email address).
+7.  Go back to github.com, click your profile picture in the top right, and then select “Settings”.
+8.  Scroll down and click “Developer settings” on the bottom left.
+9.  Select “Personal access tokens” on the left and click “Tokens (classic)”.
+10. Click the blue text that says “Generate a personal access token” In the note field, you can just enter a simple name like “my_token”
+11. In the expiration field, click “custom” and select date. This is so your token will not expire before the end of this course.
+12. Under the select scopes field, click the check box next to “repo” (which will select all sub-boxes as well). You donʼt need to worry about any of the other things listed under scopes.
+13. Click the green “Generate Token” button at the bottom.
+14. Copy the personal access token. Go back to R Studio, and paste this in the password field and click “okay”.
+
+## Pushing from workspace to github
+
+1.  Environment \> Git
+2.  Staged (Checkboxes vs square. Square demo prompts you to either check it or remove for staging)
+3.  Commit \> Pop up to demo things that are deleted, added or no changes have been done. \> Add message in commit message
+4.  Commit \> Notice / Git comment - demo what changes have been done
+5.  Push to Remote/Github - this shows team what changes have been made \> Git Push pop up (this pushes commits to github)
+    1.  You should be able to access the documents you pushed on Github now
+
+## Errors
+
+### Author Identity
+
+/srv/conda/bin/git commit -F /tmp/Rtmp0gEVYo/git-commit-message-6926ac3776.txt Author identity unknown
+
+\*\*\* Please tell me who you are.
+
+Run
+
+git config --global user.email "you\@example.com" git config --global user.name "Your Name"
+
+to set your account's default identity. Omit --global to set the identity only in this repository.
+
+fatal: unable to auto-detect email address (got 'rstudio\@jupyter-gnayycnan.(none)')
+
+Dissecting: Your error message is saying that Git doesn't know who you are. Why: Git uses your username and email to label your commits, so others know who made them. Since you're trying to commit (git commit), Git is halting because this info is missing. 
+
+Solution: In Terminal 
+1. Set for all projects (recommended) 
+git config --global user.name "Github username" 
+git config --global user.email "Github email address"
+
+2.  Set only for this project If you only want to set your identity in this one repository git config user.name "Your Name" git config user.email "your\@email.com"
+
+```{r}
+
+```
